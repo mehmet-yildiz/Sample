@@ -1,0 +1,29 @@
+﻿@model CustomerViewModel
+
+@Html.SampleHeader()
+
+@using (Html.BeginForm("Create", "Customer", FormMethod.Post, new { submit = "checkForm" }))
+{
+
+    @Html.SampleTextBoxFor(x => x.Firstname)
+    @Html.SampleTextBoxFor(x => x.Lastname)
+    @Html.SampleTextBoxFor(x => x.EMail)
+
+    @*
+        foreach (var prop in Model.GetType().GetProperties())
+        {
+            Html.SampleTextBox(prop.Name, prop.Value);
+        }
+    *@
+
+
+    @Html.SampleSubmitButton()
+}
+
+
+@section scripts
+{
+    @Html.SampleVueInitializerFor(Model)
+
+    <script src="~/Scripts/view/customer.js"></script>
+}

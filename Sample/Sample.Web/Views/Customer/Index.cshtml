@@ -1,0 +1,18 @@
+﻿@model IEnumerable<CustomerViewModel>
+
+
+@Html.RenderPartial("_ListPartial", Model)
+
+@section scripts
+{
+    <script src="~/Scripts/view/customer.js"></script>
+    <script>
+        Customer.init('@Url.Action("List")',
+            {
+                index: '@Url.Action("Index")',
+                get: '@Url.Action("Get")',
+                edit: '@Url.Action("Update")',
+                del: '@Url.Action("Delete")'
+            });
+    </script>
+}
